@@ -37,7 +37,7 @@ const Weather = () => {
     const data = await response.json();
     setCurrentWeather(data);
   }
-
+console.log("helllo",search)
   return (
     <IonPage>
       <IonHeader>
@@ -60,7 +60,7 @@ const Weather = () => {
 
         <IonRow className="ion-justify-content-center ion-margin-top ion-align-items-center">
           <IonCol size="8">
-            <IonSearchbar placeholder="eg: delhi" animated value={search} onIonChange={(e: any) => setSearch(e.target.value)} />
+            <IonSearchbar placeholder="eg: delhi" animated value={search} onIonInput={(e: any) => setSearch(e.target.value)} />
           </IonCol>
 
           <IonCol size="4">
