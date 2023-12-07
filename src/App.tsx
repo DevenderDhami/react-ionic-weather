@@ -9,7 +9,7 @@ import {
   IonTabs,
   setupIonicReact
 } from '@ionic/react';
-import { IonReactRouter } from '@ionic/react-router';
+import { IonReactHashRouter,  } from '@ionic/react-router';
 import { cloudy, ellipse, images, searchOutline, square, triangle } from 'ionicons/icons';
 
 /* Core CSS required for Ionic components to work properly */
@@ -36,26 +36,25 @@ setupIonicReact();
 
 const App: React.FC = () => (
   <IonApp>
-    <IonReactRouter>
-      <IonTabs>
-        <IonRouterOutlet>
-          <Route exact path="/weather">
-            <Weather />
-          </Route>
-          
-          <Route exact path="/">
-            <Redirect to="/weather" />
-          </Route>
-        </IonRouterOutlet>
-        <IonTabBar slot="bottom">
-          <IonTabButton tab="tab1" href="/weather">
-            <IonIcon aria-hidden="true" icon={cloudy} />
-            <IonLabel>Weather</IonLabel>
-          </IonTabButton>
-        </IonTabBar>
-      </IonTabs>
-    </IonReactRouter>
-  </IonApp>
+  <IonReactHashRouter>
+    <IonTabs>
+      <IonRouterOutlet>
+        <Route exact path="/weather">
+          <Weather />
+        </Route>
+        <Route exact path="/">
+          <Redirect to="/weather" />
+        </Route>
+      </IonRouterOutlet>
+      <IonTabBar slot="bottom">
+        <IonTabButton tab="tab1" href="/weather">
+          <IonIcon aria-hidden="true" icon={cloudy} />
+          <IonLabel>Weather</IonLabel>
+        </IonTabButton>
+      </IonTabBar>
+    </IonTabs>
+  </IonReactHashRouter>
+</IonApp>
 );
 
 export default App;
