@@ -35,7 +35,6 @@ const Weather = () => {
     const query = `${coords.latitude},${coords.longitude}`;
     const response = await fetch(`https://api.weatherapi.com/v1/current.json?key=f93eb660b2424258bf5155016210712&q=${query}`);
     const data = await response.json();
-    console.log(data);
     setCurrentWeather(data);
   }
 
@@ -60,22 +59,17 @@ const Weather = () => {
         </IonHeader>
 
         <IonRow className="ion-justify-content-center ion-margin-top ion-align-items-center">
-          <IonCol size="7">
+          <IonCol size="8">
             <IonSearchbar placeholder="eg: delhi" animated value={search} onIonChange={(e: any) => setSearch(e.target.value)} />
           </IonCol>
 
-          <IonCol size="5">
-            <IonButton expand="block" className="ion-margin-start ion-margin-end" onClick={performSearch}>Search</IonButton>
+          <IonCol size="4">
+            <IonButton expand="block" className="" onClick={performSearch}>Search</IonButton>
           </IonCol>
         </IonRow>
 
-        <IonRow className="ion-margin-start ion-margin-end ion-justify-content-center ion-text-center">
-          <IonCol size="12">
-            <h4>Here's your location based weather</h4>
-          </IonCol>
-        </IonRow>
 
-        <div style={{ marginTop: "-1.5rem" }}>
+        <div style={{ marginTop: "-10px" }}>
           {currentWeather ? <CurrentWeather currentWeather={currentWeather} /> : <SkeletonDashboard />}
         </div>
       </IonContent>
